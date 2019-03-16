@@ -1,4 +1,4 @@
 <?php
-$userquery = "SELECT * FROM tbusers WHERE email LIKE :user_email";
-$registerquery = "INSERT INTO `tbusers`(`first_name`, `last_name`, `email`, `password`) VALUES (:first_name, :last_name, :email, :password)";
+$userquery = "SELECT * FROM tbuser WHERE user_name LIKE :user_name";
+$registerquery = "INSERT INTO `tbuser`(`user_name`, `first_name`,`last_name`, `email`, `password`) VALUES (:user_name, :first_name, :last_name, :email, :password)";
 ?>
