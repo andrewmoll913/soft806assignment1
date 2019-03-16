@@ -15,7 +15,6 @@ if(!empty($_POST["user_name"]) && !empty($_POST["password"])) {
 		if($user == false) {
 			http_response_code(404);
 			header("Content-Type: text/html");
-            echo "User Doesn't exist";
 		} else if(password_verify($_POST["password"], $user["password"])) {
 			http_response_code(401);
 			header("Content-Type: application/json");
@@ -23,11 +22,11 @@ if(!empty($_POST["user_name"]) && !empty($_POST["password"])) {
 		}  else {
 			session_start();
 			$_SESSION["isvaliduser"] = 0;
-			http_response_code(200);
-			header("Content-Type: application/json");
+			$_SESSION["user_name"] = $user["user_name"];
 			unset($user["password"]);
 			$_SESSION["isvaliduser"] = 1;
-			echo json_encode($user);
+                                header("Location: main.php",  true, 303);
+                                die();
 		}
 		
 		$db = null;
