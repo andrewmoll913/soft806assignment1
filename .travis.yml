@@ -1,0 +1,4 @@
+language: php
+install:
+   - composer require yzalis/identicon
+   
