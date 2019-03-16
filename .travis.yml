@@ -3,14 +3,13 @@ php:
  - 5.5
  
 install:
-   - composer require yzalis/identicon
+ - composer require yzalis/identicon
    
-services:
-  - mysql
- before_install:
-  - mysql -e 'CREATE DATABASE IF NOT EXISTS dbsoft806assignment1'
-  - mysql -u "root" --password "" < db.sql
-  - composer install
+services: mysql
+before_install:
+ - mysql -e 'CREATE DATABASE IF NOT EXISTS dbsoft806assignment1'
+ - mysql -u "root" --password "" < db.sql
+ - composer install
 
 script:
  - ./vendor/bin/phpunit
