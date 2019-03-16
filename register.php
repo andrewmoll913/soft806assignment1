@@ -19,9 +19,7 @@ if(!(empty($_POST["user_name"]) && empty($_POST["first_name"]) && empty($_POST["
     $query->bindParam(":password", $password);
         
     if($query->execute()) {
-        http_response_code(200);
-        header("Content-Type: text/html");
-        echo "OK";
+        header("Location: login.html", true, 302);
     } else {
         http_response_code(400);
         echo var_dump($_POST);
