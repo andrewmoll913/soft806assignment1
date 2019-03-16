@@ -3,16 +3,24 @@
     <head>
 	<title>Register Account</title>
     </head>
-
+    <script>
+     function checkpass() {
+       if (document.getElementById('password').value == document.getElementById('confirm_password').value) {
+             document.getElementById('submit').disabled = false;
+       } else {
+             document.getElementById('submit').disabled = true;
+        }
+     }
+    </script>
     <body>
 	<form method="post" action="register.php">
 	    User Name: <input type="text" name="user_name" required><br />
 	    First Name: <input type="text" name="first_name" required><br />
 	    Last Name: <input type="text" name="last_name" required><br />
 	    Email: <input type="email" name="email" required><br />
-	    Password: <input type="password" name="password" required> <br/>
-	    Confirm Password: <input type="password"  name="confirm_password" required>
-	    <input type="submit"/>
+	    Password: <input type="password" id="password" name="password" onchange="checkpass()" required> <br/>
+	    Confirm Password: <input type="password" id="confirm_password"  name="confirm_password" onchange="checkpass()" required> <br/>
+	    <input id="submit" type="submit"/>
 	</form>
     </body>
 
