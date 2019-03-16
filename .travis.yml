@@ -1,8 +1,10 @@
 language: php
 php:
  - 5.5
+ 
 install:
    - composer require yzalis/identicon
+   
 services:
   - mysql
  before_install:
@@ -10,4 +12,5 @@ services:
   - mysql -u "root" --password "" < db.sql
   - composer install
 
-script: ./vendor/bin/phpunit
+script:
+ - ./vendor/bin/phpunit
