@@ -10,6 +10,3 @@ before_install:
 - mysql -e 'CREATE DATABASE IF NOT EXISTS dbsoft806assignment1'
 - mysql -u "root" dbsoft806assignment1 < db.sql
 - composer install
-
-script:
-- ./vendor/bin/phpunit
