@@ -7,9 +7,8 @@ install:
    
 services: mysql
 before_install:
-- sudo mysql -e "use mysql; update user set authentication_string=PASSWORD('rootman') where User='root'; update user set plugin='mysql_native_password';FLUSH PRIVILEGES;"
 - mysql -e 'CREATE DATABASE IF NOT EXISTS dbsoft806assignment1'
-- mysql -u "root" -p"rootman" dbsoft806assignment1 < db.sql
+- mysql -u "root" dbsoft806assignment1 < db.sql
 - composer install
 
 script:
