@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
-require __DIR__."/../src/User.php";
+require "../src/User.php";
 final class UserTest extends TestCase
 {
     public function canBeMadeFromAString(): void
