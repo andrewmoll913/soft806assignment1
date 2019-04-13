@@ -11,9 +11,11 @@ if(empty($_SESSION["isvaliduser"]) || $_SESSION["isvaliduser"] == 0) {
 	<title>Hello <?php echo $_SESSION["user_name"] ?></title>
     </head>
     <body>
-	<img src="<?php require __DIR__ . '/vendor/autoload.php';
-		  $identicon = new \Identicon\Identicon();
-		  echo $identicon->getImageDataUri($_SESSION["user_name"]); ?>" alt="Identicon" /> <br/>
-	<a href="logout.php" >Logout</a>
+	
+		<img src="<?php require '../vendor/autoload.php';
+			  $identicon = new \Identicon\Identicon();
+			  echo $identicon->getImageDataUri($_SESSION["user_name"]); ?>" alt="Identicon" /> <br/>
+		  <a href="logout.php" >Logout</a>
+	
     </body>
 </html>

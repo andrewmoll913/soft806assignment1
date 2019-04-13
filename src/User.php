@@ -22,9 +22,9 @@ final class User
     public function register(string $password)
     {
         $db = makeDatabase();
-        $query = $db->prepare("INSERT INTO `tbuser`(`user_name`, " +
-                              "`first_name`,`last_name`, `email`, `password`) " +
-                              "VALUES (:user_name, :first_name, :last_name, " +
+        $query = $db->prepare("INSERT INTO `tbuser`(`user_name`, " .
+                              "`first_name`,`last_name`, `email`, `password`) " .
+                              "VALUES (:user_name, :first_name, :last_name, " .
                               ":email, :password)");
         $query->bindParam(":user_name", $this->user_name);
         $query->bindParam(":first_name", $this->first_name);
@@ -43,20 +43,16 @@ final class User
     public static function login(string $user_name, string $password)
     {
         $db = makeDatabase();
-        $query = $db->prepare("SELECT * FROM tbuser " +
+        $query = $db->prepare("SELECT * FROM tbuser " .
                               "WHERE user_name LIKE :user_name");
         $query->bindParam(":user_name", $_POST["user_name"]);
         $query->execute();
         $user = $query->fetch(PDO::FETCH_ASSOC);
         $db = null;
-        if($user == false)
+        if($user == false || !password_verify($password, $user["password"]))
         {
             return false;
-        }
-        else if(!password_verify($password, $user["password"]))
-        {
-            return false
-        }
+		}
         else
         {
             return true;

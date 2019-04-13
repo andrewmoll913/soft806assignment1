@@ -1,8 +1,8 @@
 <?php
 
 
-function makeDB() {
-    require_once "appconfig.php";
+function makeDatabase() {
+    require_once "../appconfig.php";
 
     $options = [
         PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,

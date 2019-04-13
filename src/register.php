@@ -15,7 +15,7 @@ if(!(empty($_POST["user_name"]) &&
         
     if($user->register($password))
     {
-        header("Location: login.html", true, 302);
+        header("Location: /soft806assignment1/public/login.html", true, 302);
     }
     else
     {

@@ -6,5 +6,5 @@ session_start();
 // Unset all of the session variables.
 unset($_SESSION);
 session_destroy();
-header("Location: login.html", true, 301);
+header("Location: /soft806assignment1/public/login.html", true, 301);
 ?>
