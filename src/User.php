@@ -29,7 +29,7 @@ final class User
         $query->bindParam(":first_name", $this->first_name);
         $query->bindParam(":last_name", $this->last_name);
         $query->bindParam(":email", $this->email);
-        $query->bindParam(":password", $this->password);
+        $query->bindParam(":password", $password);
         
         $status = $query->execute();
         
