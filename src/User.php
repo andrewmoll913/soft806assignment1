@@ -39,6 +39,29 @@ final class User
         
     }
 
+    public static function login(string $user_name, string $password)
+    {
+        $db = makeDatabase();
+        $query = $db->prepare("SELECT * FROM tbuser " +
+                              "WHERE user_name LIKE :user_name");
+        $query->bindParam(":user_name", $_POST["user_name"]);
+        $query->execute();
+        $user = $query->fetch(PDO::FETCH_ASSOC);
+        $db = null;
+        if($user == false)
+        {
+            return false;
+        }
+        else if(!password_verify($password, $user["password"]))
+        {
+            return false
+        }
+        else
+        {
+            return true;
+        }
+    }
+
     public static function fromString(string $user_name): self
     {
         return new self($user_name);
@@ -51,3 +74,4 @@ final class User
 
     
 }
+?>
